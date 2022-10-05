@@ -12,6 +12,8 @@ const Register = (props) => {
   const [userContact, setUserContact] = useState("");
   const [userAddress, setUserAddress] = useState("");
 
+  const [data, setData] = useState([]);
+
   // const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState(false);
 
