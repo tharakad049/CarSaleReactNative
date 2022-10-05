@@ -20,82 +20,82 @@ connection.connect(function (err) {
     }
 })
 
-// router.get('/', (req, res) => {
-//     var query = "SELECT * FROM users";
-//     connection.query(query, (err, rows) => {
-//         if (err) console.log(err)
-//         res.send(rows)
-//     })
-// })
+router.get('/', (req, res) => {
+    var query = "SELECT * FROM users";
+    connection.query(query, (err, rows) => {
+        if (err) console.log(err)
+        res.send(rows)
+    })
+})
 
-// router.post('/', (req, res) => {
-//     const id = req.body.id
-//     const name = req.body.name
-//     const email = req.body.email
-//     const password = req.body.password
-//     const contact = req.body.contact
-//     const address = req.body.address
+router.post('/', (req, res) => {
+    const id = req.body.id
+    const name = req.body.name
+    const email = req.body.email
+    const password = req.body.password
+    const contact = req.body.contact
+    const address = req.body.address
 
-//     var query = "INSERT INTO users (id, name, email,password, contact,address) VALUES (?,?,?,?,?,?)";
+    var query = "INSERT INTO users (id, name, email,password, contact,address) VALUES (?,?,?,?,?,?)";
 
-//     connection.query(query, [id, name, email,password, contact,address], (err) => {
-//         if (err) {
-//             res.send({'message': 'duplicate entry'})
-//         } else {
-//             res.send({'message': 'user created!'})
-//         }
-//     })
+    connection.query(query, [id, name, email,password, contact,address], (err) => {
+        if (err) {
+            res.send({'message': 'duplicate entry'})
+        } else {
+            res.send({'message': 'user created!'})
+        }
+    })
 
-// })
+})
 
-// router.put('/', (req, res) => {
-//     const id = req.body.id
-//     const name = req.body.name
-//     const email = req.body.email
-//     const password = req.body.password
-//     const contact = req.body.contact
-//     const address = req.body.address
+router.put('/', (req, res) => {
+    const id = req.body.id
+    const name = req.body.name
+    const email = req.body.email
+    const password = req.body.password
+    const contact = req.body.contact
+    const address = req.body.address
 
-//     var query = "UPDATE users SET name=?,email=?, password=?, contact=? address=?  WHERE id=?";
+    var query = "UPDATE users SET name=?,email=?, password=?, contact=? address=?  WHERE id=?";
 
-//     connection.query(query, [name, email,password, contact,address, id], (err, rows) => {
-//         if (err) console.log(err);
+    connection.query(query, [name, email,password, contact,address, id], (err, rows) => {
+        if (err) console.log(err);
 
-//         if (rows.affectedRows > 0) {
-//             res.send({'message': 'user updated'})
-//         } else {
-//             res.send({'message': 'user not found'})
-//         }
-//     })
-// })
+        if (rows.affectedRows > 0) {
+            res.send({'message': 'user updated'})
+        } else {
+            res.send({'message': 'user not found'})
+        }
+    })
+})
 
-// router.delete('/', (req, res) => {
-//     const id = req.body.id
+router.delete('/', (req, res) => {
+    const id = req.body.id
 
-//     var query = "DELETE FROM users WHERE id=?";
+    var query = "DELETE FROM users WHERE id=?";
 
-//     connection.query(query, [id], (err, rows) => {
-//         if (err) console.log(err);
+    connection.query(query, [id], (err, rows) => {
+        if (err) console.log(err);
 
-//         if (rows.affectedRows > 0) {
-//             res.send({'message': 'user deleted'})
-//         } else {
-//             res.send({'message': 'user not found'})
-//         }
-//     })
-// })
+        if (rows.affectedRows > 0) {
+            res.send({'message': 'user deleted'})
+        } else {
+            res.send({'message': 'user not found'})
+        }
+    })
+})
 
-// router.get('/getOne', (req, res) => {
-//     const id = req.body.id
+router.get('/getOne', (req, res) => {
+    const id = req.body.id
 
-//     var query = "SELECT * from users WHERE id=?";
+    var query = "SELECT * from users WHERE id=?";
 
-//     connection.query(query, [id], (err, row) => {
-//         if (err) console.log(err);
+    connection.query(query, [id], (err, row) => {
+        if (err) console.log(err);
 
-//         res.send(row)
-//     })
-// })
+        res.send(row)
+    })
+})
 
 
 module.exports = router

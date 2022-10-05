@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 8900
+const mongoose=require('mongoose')
 
 const vehicle = require('./routes/vehicles')
 const users = require('./routes/users')
@@ -22,6 +23,12 @@ const options = {
 }
 
 mongoose.connect(options)
+
+const con=mongoose.connection
+con.on("open",()=>{
+    console.log('MongoDB connected !')
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
