@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native'
-import Background from './Background'
+import { Alert, ImageBackground, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Button from './Button'
 import Field from './Field'
 
@@ -31,8 +30,8 @@ const Login = (props) => {
 
 
   return (
-    <Background>
-              <ScrollView>
+    <ImageBackground source={require("./assets/2.jpeg")} style={{ height: '100%' }}>  
+    <ScrollView>
       <View style={{ alignItems: "center", width: 360 }}>
 
           <Text style={{ color: "white", fontSize: 50, fontWeight: "bold", top: 10 }}>Login</Text>
@@ -70,7 +69,7 @@ const Login = (props) => {
 
       </View>
       </ScrollView>
-    </Background>
+      </ImageBackground>  
   )
 }
 
