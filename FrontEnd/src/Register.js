@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Background from './Background'
 import Field from './Field'
 import Button from './Button'
+import {BASE_URL} from "@env"
 
 const Register = (props) => {
 
@@ -70,14 +71,10 @@ const Register = (props) => {
 
   return (
     <Background>
+    <ScrollView>
       <View style={{ alignItems: "center", width: 360 }}>
         <Text style={{ color: "white", fontSize: 50, fontWeight: "bold", top: 10 }}>Register</Text>
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          contentContainerStyle={{
-            justifyContent: 'center',
-            alignContent: 'center',
-          }}>
+ 
           <KeyboardAvoidingView enabled>
             <View style={{ backgroundColor: "white", alignItems: "center", height: 700, width: 360, top: 20, borderTopLeftRadius: 100, paddingTop: 20 }}>
 
@@ -116,8 +113,9 @@ const Register = (props) => {
               </View>
             </View>
           </KeyboardAvoidingView>
-        </ScrollView>
+
       </View>
+    </ScrollView>
     </Background>
   )
 }

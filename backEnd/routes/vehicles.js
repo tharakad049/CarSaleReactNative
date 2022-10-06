@@ -4,7 +4,6 @@ const db = require('../configs/db.config')
 const router = express.Router()
 const connection = mysql.createConnection(db.database)
 
-
 connection.connect(function (err) {
     if (err) {
         console.log(err);

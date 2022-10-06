@@ -12,7 +12,7 @@ connection.connect(function (err) {
         console.log('Connected to the MySQL server');
         var userTableQuery = "CREATE TABLE IF NOT EXISTS users (id VARCHAR(255) PRIMARY KEY, name VARCHAR(255), email VARCHAR (255), password VARCHAR(255) , contact VARCHAR(255),address VARCHAR(255) )"
         connection.query(userTableQuery, function (err, result) {
-            
+
             if (result.warningCount === 0) {
                 console.log("User table created!");
             }
@@ -38,14 +38,13 @@ router.post('/', (req, res) => {
 
     var query = "INSERT INTO users (id, name, email,password, contact,address) VALUES (?,?,?,?,?,?)";
 
-    connection.query(query, [id, name, email,password, contact,address], (err) => {
+    connection.query(query, [id, name, email, password, contact, address], (err) => {
         if (err) {
-            res.send({'message': 'duplicate entry'})
+            res.send({ 'message': 'duplicate entry' })
         } else {
-            res.send({'message': 'user created!'})
+            res.send({ 'message': 'user created!' })
         }
     })
-
 })
 
 router.put('/', (req, res) => {
@@ -58,13 +57,13 @@ router.put('/', (req, res) => {
 
     var query = "UPDATE users SET name=?,email=?, password=?, contact=? address=?  WHERE id=?";
 
-    connection.query(query, [name, email,password, contact,address, id], (err, rows) => {
+    connection.query(query, [name, email, password, contact, address, id], (err, rows) => {
         if (err) console.log(err);
 
         if (rows.affectedRows > 0) {
-            res.send({'message': 'user updated'})
+            res.send({ 'message': 'user updated' })
         } else {
-            res.send({'message': 'user not found'})
+            res.send({ 'message': 'user not found' })
         }
     })
 })
@@ -78,9 +77,9 @@ router.delete('/', (req, res) => {
         if (err) console.log(err);
 
         if (rows.affectedRows > 0) {
-            res.send({'message': 'user deleted'})
+            res.send({ 'message': 'user deleted' })
         } else {
-            res.send({'message': 'user not found'})
+            res.send({ 'message': 'user not found' })
         }
     })
 })
