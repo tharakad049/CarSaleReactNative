@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const port = 8900
 
 // const vehicle = require('./routes/vehicles')
- const user = require('./routes/users')
+const user = require('./routes/users')
 
 const app = express()
 
@@ -28,7 +28,7 @@ con.on("open", () => {
 })
 
 app.use(express.json())
- app.use('/users', user)
+app.use('/users', user)
 // app.use('/vehicles', vehicle)
 
 app.listen(port, () => {
