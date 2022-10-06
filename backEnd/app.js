@@ -1,16 +1,14 @@
 const express = require('express')
+const mongoose = require('mongoose')
+const port = 4000
+
+// const customer = require('./routes/customer')
+//const user = require('./routes/user')
+
 const app = express()
-const port = 8900
-const mongoose=require('mongoose')
 
-const vehicle = require('./routes/vehicles')
-const users = require('./routes/users')
 
-app.use(express.json())
-
-app.use('/vehicle', vehicle)
-app.use('/users', users)
-
+const url = 'mongodb://localhost/CarSale'
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -22,12 +20,14 @@ const options = {
     family: 4 // Use IPv4, skip trying IPv6
 }
 
-mongoose.connect(options)
+mongoose.connect(url, options, { useNewUrlParser: true })
+const con = mongoose.connection
 
-const con=mongoose.connection
-con.on("open",()=>{
-    console.log('MongoDB connected !')
+con.on("open", () => {
+    console.log('MongoDB connected!');
 })
+
+app.use(express.json())
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

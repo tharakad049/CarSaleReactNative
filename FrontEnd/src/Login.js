@@ -1,5 +1,5 @@
-import React from 'react'
-import { ScrollViewComponent, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Background from './Background'
 import Button from './Button'
 import Field from './Field'
@@ -32,8 +32,9 @@ const Login = (props) => {
 
   return (
     <Background>
+              <ScrollView>
       <View style={{ alignItems: "center", width: 360 }}>
-        <ScrollViewComponent>
+
           <Text style={{ color: "white", fontSize: 50, fontWeight: "bold", top: 10 }}>Login</Text>
           <View style={{ backgroundColor: "white", alignItems: "center", height: 700, width: 360, top: 20, borderTopLeftRadius: 100, paddingTop: 100 }}>
             <Text style={{ fontSize: 30, color: "darkgreen", fontWeight: "bold", top: -80 }}>
@@ -66,8 +67,9 @@ const Login = (props) => {
               </TouchableOpacity>
             </View>
           </View>
-        </ScrollViewComponent>
+
       </View>
+      </ScrollView>
     </Background>
   )
 }

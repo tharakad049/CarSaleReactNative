@@ -13,7 +13,6 @@ const Register = (props) => {
   const [userAddress, setUserAddress] = useState("");
 
   const [data, setData] = useState([]);
-
   // const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState(false);
 
@@ -49,7 +48,7 @@ const Register = (props) => {
   //   }
   // };
 
-
+  var id;
   const handleSubmitButton = () => {
     fetch('http://192.168.8.143:8900/users/', {
       method: 'POST',
