@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function Button({btnLabel, bgcolor, press, textColor}) {
+export default function Button({btnLabel,  bgcolor, press, textColor}) {
     return (
         <TouchableOpacity
         onPress={press}

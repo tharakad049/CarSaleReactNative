@@ -12,7 +12,7 @@ const Home = (props) => {
       </View>
       
       <View style={{left: 20, bottom: -100}}>
-      <Button bgcolor='green' textColor='white' btnLabel="Login"  press={()=>{props.navigation.navigate("Login")}}/>
+      <Button bgcolor='green'textColor='white' btnLabel="Login"  press={()=>{props.navigation.navigate("Login")}}/>
       <Button bgcolor='white' textColor='black' btnLabel="Sign Up" press={()=>{props.navigation.navigate("SignIn")}}/>
       </View>
 

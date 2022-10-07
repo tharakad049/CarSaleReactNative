@@ -18,7 +18,7 @@ const Login = (props) => {
           setName('')
           setPassword('')
           Alert.alert("User Loged Successfully....");
-          props.navigation.navigate("Details")
+          props.navigation.navigate("AddData")
         }
       }
     }
@@ -30,9 +30,9 @@ const Login = (props) => {
 
 
   return (
-    <ImageBackground source={require("./assets/2.jpeg")} style={{ height: '100%' }}>  
-    <ScrollView>
-      <View style={{ alignItems: "center", width: 360 }}>
+    <ImageBackground source={require("./assets/2.jpeg")} style={{ height: '100%' }}>
+      <ScrollView>
+        <View style={{ alignItems: "center", width: 360 }}>
 
           <Text style={{ color: "white", fontSize: 50, fontWeight: "bold", top: 10 }}>Login</Text>
           <View style={{ backgroundColor: "white", alignItems: "center", height: 700, width: 360, top: 20, borderTopLeftRadius: 100, paddingTop: 100 }}>
@@ -67,9 +67,9 @@ const Login = (props) => {
             </View>
           </View>
 
-      </View>
+        </View>
       </ScrollView>
-      </ImageBackground>  
+    </ImageBackground>
   )
 }
 

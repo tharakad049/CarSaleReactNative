@@ -1,8 +1,7 @@
-import { View, Text, TouchableOpacity, KeyboardAvoidingView, ScrollView, ImageBackground } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import Field from './Field'
 import Button from './Button'
-import Background from './Background'
 
 const Register = (props) => {
 
@@ -15,24 +14,24 @@ const Register = (props) => {
   const [data, setData] = useState([]);
 
   var id;
-  const handleSubmitButton = () => {
-    fetch('http://192.168.8.143:8900/users/', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: id,
-        name: userName,
-        email: userEmail,
-        password: userPassword,
-        contact: userContact,
-        address: userAddress,
-      }),
-    }).then((response) => { console.log("User Registered Successfully... "); })
-      .catch((err) => { console.log(err.message) });
-  };
+  // const handleSubmitButton = () => {
+  //   fetch('http://192.168.8.143:8900/users/', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       id: id,
+  //       name: userName,
+  //       email: userEmail,
+  //       password: userPassword,
+  //       contact: userContact,
+  //       address: userAddress,
+  //     }),
+  //   }).then((response) => { console.log("User Registered Successfully... "); })
+  //     .catch((err) => { console.log(err.message) });
+  // };
 
   return (
     <ImageBackground source={require("./assets/2.jpeg")} style={{ height: '100%' }}>  
@@ -66,7 +65,7 @@ const Register = (props) => {
               onChangeText={(e) => { setUserAddress(e) }}
               type="address" />
 
-            <Button textColor='white' bgcolor='green' btnLabel="Register" press={handleSubmitButton} />
+            <Button textColor='white' bgcolor='green' btnLabel="Register" press={() => props.navigation.navigate("AddedData")}/>
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: "center" }}>
               <Text style={{ fontSize: 16, fontWeight: "bold" }}>Alreadr have an account ? </Text>
               <TouchableOpacity onPress={() => props.navigation.navigate("Login")}>

@@ -15,6 +15,7 @@ export default function LoadData() {
                 height: 700, width: 360, top: 20,
                 borderTopLeftRadius: 50, paddingTop: 20, borderTopRightRadius: 50,
             }}>
+        
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: "center" }}></View>
             </View>
         </KeyboardAvoidingView>
