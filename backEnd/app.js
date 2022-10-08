@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const port = 8900
 
-// const vehicle = require('./routes/vehicles')
+const vehicle = require('./routes/vehicles')
 const user = require('./routes/users')
 
 const app = express()
@@ -29,7 +29,7 @@ con.on("open", () => {
 
 app.use(express.json())
 app.use('/users', user)
-// app.use('/vehicles', vehicle)
+app.use('/vehicles', vehicle)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

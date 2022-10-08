@@ -2,12 +2,23 @@ import React, { useState } from 'react'
 import { Alert, ImageBackground, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Button from './Button'
 import Field from './Field'
+import { useEffect } from 'react'
 
 const Login = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    validateData()
+
+  })
+  const validateData = async () => {
+    fetch('{BASE_URL}+/users/')
+      .then((response) => response.json())
+      .then((json) => setData(json));
+  }
 
   const handleLogButton = () => {
     var b = true;
@@ -18,7 +29,7 @@ const Login = (props) => {
           setName('')
           setPassword('')
           Alert.alert("User Loged Successfully....");
-          props.navigation.navigate("AddData")
+          props.navigation.navigate("AddedData")
         }
       }
     }
